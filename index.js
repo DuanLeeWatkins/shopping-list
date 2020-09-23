@@ -31,4 +31,10 @@ function renderList(data) {
   $(".shopping-list").html(htmlFrame);
 }
 
-renderList();
+$(function () {
+  $("#js-shopping-list-form").submit((event) => {
+    event.preventDefault();
+    const userTextElement = $(this).find("#shopping-list-entry");
+    $(".shopping-list").html(htmlFrame);
+  });
+});
