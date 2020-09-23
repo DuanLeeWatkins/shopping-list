@@ -29,12 +29,12 @@ function renderList(data) {
 
   //   return htmlFrame;
   $(".shopping-list").html(htmlFrame);
-}
 
-$(function () {
-  $("#js-shopping-list-form").submit((event) => {
-    event.preventDefault();
-    const userTextElement = $(this).find("#shopping-list-entry");
-    $(".shopping-list").html(htmlFrame);
+  $(function () {
+    $("#js-shopping-list-form").submit((event) => {
+      event.preventDefault();
+      const userTextElement = $(this).find("#shopping-list-entry");
+      $("li").html(renderList(data));
+    });
   });
-});
+}
