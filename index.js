@@ -1,17 +1,15 @@
-let appState = [
-  { itemName: "almonds", isItemChecked: false },
-  { itemName: "apples", isItemChecked: false },
-  { itemName: "oranges", isItemChecked: false },
-  { itemName: "milk", isItemChecked: false },
-  { itemName: "bread", isItemChecked: false },
-];
 
-function renderList(data) {
-  console.log("renderList is executing");
+
+function addItem() {
+    $("#js-shopping-list-form").submit((event) => {
+        event.preventDefault();
+        const userTextElement = $(this).find("#shopping-list-entry");
+        $("li").html(addItem());
+    });
 
   let htmlFrame = "";
 
-  for (let i = 0; i < appState.length; i++) {
+  
     htmlFrame += `
         <li>
             <span class="shopping-item">${appState[i].itemName}</span>
@@ -30,11 +28,7 @@ function renderList(data) {
   //   return htmlFrame;
   $(".shopping-list").html(htmlFrame);
 
-  $(function () {
-    $("#js-shopping-list-form").submit((event) => {
-      event.preventDefault();
-      const userTextElement = $(this).find("#shopping-list-entry");
-      $("li").html(renderList(data));
-    });
-  });
+  
 }
+
+$(addItem())
